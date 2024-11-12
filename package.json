@@ -1,0 +1,56 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "prisma": {
+    "schema": "packages/database/prisma/schema.prisma"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "db:migrate:deploy": "turbo run db:migrate:deploy",
+    "db:migrate:dev": "turbo run db:migrate:dev",
+    "db:push": "turbo run db:push",
+    "db:seed": "turbo run db:seed",
+    "dev": "turbo run dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate": "turbo run generate",
+    "lint": "turbo run lint",
+    "fix-deps": "manypkg fix",
+    "postinstall": "husky && manypkg check",
+    "validate": "yarn lint-staged",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "lint-staged": {
+    "*.{js, jsx,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "packageManager": "yarn@4.4.1",
+  "name": "imageflow",
+  "dependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@imageflow/eslint-config": "*",
+    "@imageflow/typescript-config": "*",
+    "@manypkg/cli": "^0.22.0",
+    "@prisma/client": "^5.21.1",
+    "@types/shell-quote": "^1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "prisma": "^5.21.1",
+    "shell-quote": "^1.8.1",
+    "tsx": "^4.19.2",
+    "turbo": "^2.2.3"
+  }
+}

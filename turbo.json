@@ -1,0 +1,26 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["DATABASE_URL"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": ["MINIO_SECRET_KEY", "MINIO_ACCESS_KEY"],
+      "inputs": ["$TURBO_DEFAULT", ".env*"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "db:migrate:deploy": {},
+    "db:migrate:dev": {},
+    "db:push": {},
+    "db:seed": {},
+    "dev": {
+      "env": ["MINIO_SECRET_KEY", "MINIO_ACCESS_KEY", "NODE_ENV"],
+      "cache": false,
+      "persistent": true
+    },
+    "test": {},
+    "generate": {
+      "dependsOn": ["^generate"]
+    },
+    "lint": {}
+  }
+}
