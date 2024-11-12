@@ -28,10 +28,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-      - name: Install
+      - name: INSTALL
         with:
           node-version: 23
-      - name: INSTALL
         run: yarn install
       - name: TEST
         run: yarn test
