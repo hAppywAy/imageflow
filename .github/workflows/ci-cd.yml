@@ -36,8 +36,9 @@ jobs:
         run: yarn build
 
   docker:
-    timeout-minutes: 15
     name: Docker images (api & app)
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
     steps:
       -
         name: Set up QEMU
