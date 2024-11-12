@@ -57,10 +57,10 @@ jobs:
         with:
           file: ./apps/api/Dockerfile
           push: true
-          tags: happyway/imageflow-api:latest
+          tags: happyway/imageflow--api:latest
       - name: Build and push app
         uses: docker/build-push-action@v6
         with:
           file: ./apps/web/Dockerfile
           push: true
-          tags: happyway/imageflow-app:latest
+          tags: happyway/imageflow--app:latest
